@@ -1,0 +1,70 @@
+# This is an example. Modify values as needed.
+
+# Project name
+project_name: itc_app
+
+# Available architecture options:
+#   - mvvm_architecture (default)
+#   - mvc_architecture
+#   - clean_architecture
+architecture: mvvm_architecture
+
+# Available feature management strategies:
+#   - inLib (default): all features are placed in the `lib` folder
+#   - independantModules: each feature has its own Flutter modules for domain and data layers. The presentation layer remains in the main `lib` folder.
+#
+# Note: The "independantModules" option is only available for `clean_architecture`.
+features_strategy: inLib
+
+# List of features:
+features:
+  - authentication: # Feature name (snake_case format)
+      
+      name: authentication # Override feature name
+      
+      # Feature description
+      description: User authentication feature
+      
+      # List of entity attributes (optional)
+      # If you don’t have attributes, you can skip this section.
+      entity_attributes:
+        email: String # Format: { attribute_name: type }
+        otp: String
+        password: String
+        token: String
+        id: int
+      
+      # List of use cases
+      usecases:
+        - getUserOtp: # Use case name
+            use_case_type: Future # Return type (Future or Stream)
+            description: Retrieve OTP for user authentication
+            params: # List of parameters
+              email: String # Format: { parameter_name: type }
+        - verifyUserOtp:
+            use_case_type: Future
+            description: Verify OTP code
+            params:
+              email: String
+              otp: String
+        - verifyUserExistence:
+            use_case_type: Future
+            description: Check if the user exists
+
+# State management
+# Default is GetX
+# Currently available options: none, getx
+# Note: Only "none" and "getx" are available at the moment.
+state_management: GetX
+
+# List of environments:
+envs:
+  - development
+  - staging
+  - production
+
+# List of environment variables
+# Do not include sensitive data (only variable names)
+env_variables:
+  - ENV1
+  - ENV2
