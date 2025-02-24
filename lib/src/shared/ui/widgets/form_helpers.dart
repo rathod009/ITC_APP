@@ -59,7 +59,7 @@ Widget buildTextField(String label, ValueChanged<String> onChanged,
   Widget buildDropdown(String label, List<String> options,
     ValueChanged<String?> onChanged, FormFieldValidator<String>? validateCourseCategory) {
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 8.0),
+    padding: const EdgeInsets.symmetric(vertical: 8),
     child: DropdownButtonFormField<String>( // Use DropdownButtonFormField directly
       decoration: InputDecoration(
         labelText: label, // Use labelText for the label

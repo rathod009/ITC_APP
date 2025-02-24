@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class CourseCard extends StatelessWidget {
   final String title;
   final String description;
-  final String duration;
+  // final String duration;
   final String imageUrl;
 
   const CourseCard({
     super.key,
     required this.title,
     required this.description,
-    required this.duration,
+    // required this.duration,
     required this.imageUrl,
   });
 
@@ -61,8 +61,13 @@ class CourseCard extends StatelessWidget {
                           ),
                           const SizedBox(height: 8),
                           Text(description),
-                          const SizedBox(height: 8),
-                          Text('Duration: $duration'),
+                          // const SizedBox(height: 8),
+                          // Text(
+                          //   'Duration: $duration',
+                          //   style: const TextStyle(
+                          //     fontSize: 14, fontWeight: FontWeight.bold
+                          //   )
+                          //   ),
                         ],
                       ),
                     ),
@@ -71,8 +76,9 @@ class CourseCard extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(8, 16, 8, 0),
                       child: Image.asset(
                         imageUrl,
-                        height: 100,
-                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 120,
+                        fit: BoxFit.contain,
                         errorBuilder: (context, error, stackTrace) =>
                             const Text('Image failed'),
                       ),

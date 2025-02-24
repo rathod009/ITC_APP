@@ -6,14 +6,14 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class GuestFormView extends StatefulWidget {
-  const GuestFormView({super.key});
+class GuestInquiryForm extends StatefulWidget {
+  const GuestInquiryForm({super.key});
 
   @override
-  State<GuestFormView> createState() => _GuestFormViewState();
+  State<GuestInquiryForm> createState() => _GuestInquiryFormState();
 }
 
-class _GuestFormViewState extends State<GuestFormView> {
+class _GuestInquiryFormState extends State<GuestInquiryForm> {
   final _formKey = GlobalKey<FormState>();
 
   String fName = '';
@@ -62,12 +62,18 @@ class _GuestFormViewState extends State<GuestFormView> {
 
   // Vacation Course Categories
 static const List<String> vacationCourseCategories = [
-  'Summer Coding',
-  'Art & Craft',
-  'Robotics',
-  'Language Learning',
-  'Music',
-  'Other Vacation'
+  '2D, 3D Engineering',
+  // '2D, 3D Engineering (CAD/CAM)',
+  'Accounting',
+  'Artificial Intelligence',
+  'Cloud Computing & Networking',
+  'Cyber Security and Ethical Hacking',
+  'Data Analytics & Office Automation',
+  'IoT, Robotics & Hardware Repairing',
+  'Multimedia & AR/VR',
+  // 'Multimedia & AR/VR (Graphics & Animation)',
+  'Programming',
+  'Spoken English',
 ];
 
     Future<void> _submitForm() async {
@@ -191,7 +197,7 @@ String? validateCourseCategory(List<String>? value) {
     return Scaffold(
       appBar: AppBar(title: const Text("INQUIRY FORM")),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+        padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
         child: Container( // Wrap the form with a Container for styling
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -296,7 +302,7 @@ String? validateCourseCategory(List<String>? value) {
                       if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) return 'Invalid email';
                       return null;
                     }, keyboardType: TextInputType.emailAddress),
-                    
+                    //Know ITC From
                     Row(
                     children: [
                       // Sources
@@ -347,12 +353,12 @@ String? validateCourseCategory(List<String>? value) {
                         const SizedBox(height: 8),
                         const Text("Course Category", style: TextStyle(fontWeight: FontWeight.bold)),
                         Wrap(
-                          spacing: -2.0,
-                          runSpacing: -10.0,
+                          spacing: -4.0,
+                          runSpacing: -8.0,
                           children: displayedCourses.map((course) {
                             return SizedBox(
                               key: ValueKey(course),
-                              width: MediaQuery.of(context).size.width / 1.5 - 15,
+                              width: MediaQuery.of(context).size.width / 1 - 0,
                               child: CheckboxListTile(
                                 title: Text(course),
                                 value: interestedCoursesCategory.contains(course),

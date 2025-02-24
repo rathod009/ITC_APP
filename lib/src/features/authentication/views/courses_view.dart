@@ -7,11 +7,13 @@ class CoursesView extends StatelessWidget {
   // Course categories
   static const List<String> allCourseCategories = [
     'Accounting',
+    'Artificial Intelligence',
     'Autodesk',
+    'Ethical Hacking',
     'Hardware',
     'Multimedia',
-    'Networking',
-    'Office Automation',
+    'Cloud Computing & Networking',
+    'Data Analytics & Office Automation',
     'Programming',
     'Spoken English',
     'Internship',
@@ -21,9 +23,11 @@ class CoursesView extends StatelessWidget {
   // Course descriptions
   static const List<String> allCourseDescriptions = [
   'Learn accounting principles, financial analysis, and budgeting. Build a foundation for a finance career.',
+  'Implement AI solutions, automate tasks, and optimize processes. Drive efficiency with intelligent technology.',
   'Master Autodesk software for 2D/3D modeling in architecture and engineering. Prepare for industry certifications.',
+  'Study cryptography, network protocols, and ethical hacking methodologies. Become a guardian of data integrity.',
   'Gain hardware knowledge: CPUs, motherboards, memory. Learn to assemble and repair systems for IT careers.',
-  'Explore multimedia tools like Photoshop and Premiere Pro. Develop skills in graphics and video editing.',
+  'Unleash your creativity through the power of multimedia. Develop your skills in graphics and video editing.',
   'Learn networking concepts, security, and administration. Configure routers and switches for network careers.',
   'Master Microsoft Office Suite for document creation, data analysis, and presentations in office environments.',
   'Learn programming languages like Python and Java. Develop skills in software and app development.',
@@ -32,39 +36,38 @@ class CoursesView extends StatelessWidget {
   'Explore specialized courses like data science and web development. Learn emerging technologies.',
 ];
 
-  // Course durations
-  static const List<String> allCourseDurations = [
-    '3 Months',
-    '4 Months',
-    '2 Months',
-    '3 Months',
-    '4 Months',
-    '2 Months',
-    '3 Months',
-    '2 Months',
-    'Variable',
-    'Variable',
-  ];
+  // // Course durations
+  // static const List<String> allCourseDurations = [
+  //   '3 Months | 1 Month (Vacation)',
+  //   '1 Month (Vacation) ',
+  //   '4 Months',
+  //   '1 Month (Vacation)',
+  //   '2 Months',
+  //   '3 Months',
+  //   '4 Months',
+  //   '2 Months',
+  //   '3 Months',
+  //   '2 Months',
+  //   'Variable',
+  //   'Variable',
+  // ];
 
   // Local image asset paths (replace with your actual paths)
   static const List<String> allCourseImageAssets = [
-    // 'assets/images/accounting.png',
-    // 'assets/images/autodesk.png',
-    // 'assets/images/hardware.png',
-    // 'assets/images/multimedia.png',
-    // 'assets/images/networking.png',
-    // 'assets/images/office.png',
-    // 'assets/images/programming.png',
+    'assets/images/accounting.png',
+    'assets/images/artificial.webp',
+    'assets/images/other.png', // 'assets/images/autodesk.png',
+    'assets/images/ethical_hacking.jpg',
+    'assets/images/hardware.jpg',
+    'assets/images/multimedia.png',
+    'assets/images/networking.png',
+    'assets/images/data_analytics.png', 
+    'assets/images/programming.png',
     // 'assets/images/english.png',
     // 'assets/images/internship.png',
     // 'assets/images/other.png',
-    'assets/images/other.png',
-    'assets/images/other.png',
-    'assets/images/other.png',
-    'assets/images/other.png',
-    'assets/images/other.png',
-    'assets/images/other.png',
-    'assets/images/other.png',
+    // 'assets/images/other.png',
+    // 'assets/images/other.png',
     'assets/images/other.png',
     'assets/images/other.png',
     'assets/images/other.png',
@@ -83,7 +86,7 @@ class CoursesView extends StatelessWidget {
           return CourseCard(
             title: allCourseCategories[index],
             description: allCourseDescriptions[index],
-            duration: allCourseDurations[index],
+            // duration: allCourseDurations[index],
             imageUrl: allCourseImageAssets[index], // Use asset paths
           );
         },

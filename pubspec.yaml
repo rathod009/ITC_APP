@@ -35,17 +35,25 @@ flutter:
     - assets/images/quiz.png
     - assets/images/study.png
     - assets/images/other.png
+    - assets/images/course.png
     - assets/images/lecture.png
     - assets/images/batches.png
-    - assets/images/course.png
     - assets/images/project.png
     - assets/images/seminar.png
+    - assets/images/hardware.jpg
     - assets/images/insights.png
+    - assets/images/networking.png
+    - assets/images/accounting.png
+    - assets/images/multimedia.png
     - assets/images/attendance.png
     - assets/images/assignment.png
     - assets/images/itc_header.png
+    - assets/images/programming.png
+    - assets/images/artificial.webp
     - assets/images/examination.png
     - assets/images/student_list.png
+    - assets/images/data_analytics.png
+    - assets/images/ethical_hacking.jpg
 
     - assets/user_credentials.json
 

@@ -7,7 +7,7 @@ import 'package:itc_app/src/features/authentication/views/guest_dashboard_view.d
 import 'package:itc_app/src/features/authentication/views/admin_dashboard_view.dart'; // Create these
 import 'package:itc_app/src/features/authentication/views/faculty_dashboard_view.dart'; // Create these
 import 'package:itc_app/src/features/authentication/views/student_dashboard_view.dart'; // Create these
-import 'package:itc_app/src/features/authentication/views/guest_form_view.dart'; // Add this line
+import 'package:itc_app/src/features/authentication/views/guest_inquiry_form.dart'; // Add this line
 import 'package:itc_app/src/features/authentication/views/courses_view.dart'; // Add this line
 
 import 'app_routes.dart';
@@ -44,7 +44,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.guestForm,
-      page: () => GuestFormView(),
+      page: () => GuestInquiryForm(),
     ),
     GetPage(
       name: AppRoutes.courses,
