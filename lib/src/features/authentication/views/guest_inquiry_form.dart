@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:itc_app/src/shared/ui/widgets/form_helpers.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -80,8 +80,16 @@ static const List<String> vacationCourseCategories = [
   bool formIsValid = _formKey.currentState!.validate();
   bool courseCategoryIsValid = validateCourseCategory(interestedCoursesCategory) == null;
 
+  // if (formIsValid && courseCategoryIsValid) {
+  //   inquiryDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
+
   if (formIsValid && courseCategoryIsValid) {
-    inquiryDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
+    // Use ISO 8601 format
+    inquiryDate = DateTime.now().toIso8601String();
+
+    // Or, if needed, try SQL Server specific format
+    // inquiryDate = DateFormat('yyyy-MM-ddTHH:mm:ss.SSSZ').format(DateTime.now().toUtc());
+
 
     try {
       final response = await http.post(
