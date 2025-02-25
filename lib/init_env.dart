@@ -20,13 +20,13 @@ class InitEnv {
   /// If there is an error during the initialization, it logs the error.
   static Future<void> initEnv() async {
     try {
-      AppLogger.INSTANCE.logger.i("  INIT ENV");
+      AppLogger.instance.logger.i("  INIT ENV");
       Map<String, String> envVars = await EnvLoader.load(dotEnv: dotenv);
-      AppLogger.INSTANCE.logger.i("  ENV VARS => $envVars");
+      AppLogger.instance.logger.i("  ENV VARS => $envVars");
       await EnvObject.load(envVars: envVars);
-      AppLogger.INSTANCE.logger.i("  INIT ENV DONE");
+      AppLogger.instance.logger.i("  INIT ENV DONE");
     } catch (e) {
-      AppLogger.INSTANCE.logger.e(e.toString(), error: e);
+      AppLogger.instance.logger.e(e.toString(), error: e);
     }
   }
 }

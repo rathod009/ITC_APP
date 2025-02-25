@@ -39,7 +39,7 @@ class LoginController extends GetxController {
         Get.snackbar('Error', 'Invalid username or password');
       }
     } catch (e) {
-      print("Authentication error: $e");
+      // print("Authentication error: $e");
       Get.snackbar('Error', 'An error occurred during authentication.');
     }
   }

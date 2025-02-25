@@ -20,7 +20,7 @@ class AppLogger extends Logger {
   ///
   /// This ensures that only one instance of [AppLogger] is created throughout
   /// the application.
-  static final AppLogger INSTANCE = AppLogger._internal();
+  static final AppLogger instance = AppLogger._internal();
 
   /// Private constructor for the singleton pattern.
   AppLogger._internal();

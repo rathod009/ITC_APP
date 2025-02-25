@@ -53,7 +53,7 @@ static late String eNV2;
   /// The method is idempotent.
   static Future<void> load({required Map<String, String> envVars}) async {
 
-    AppLogger.INSTANCE.logger.i("🔹 INIT ENV OBJECT");
+    AppLogger.instance.logger.i("🔹 INIT ENV OBJECT");
     if (_isLoaded) return;
     _isLoaded = true;
 
@@ -61,7 +61,7 @@ static late String eNV2;
     eNV1 = envVars[EnvDatas.eNV1] ?? '';
 		eNV2 = envVars[EnvDatas.eNV2] ?? '';
 
-    AppLogger.INSTANCE.logger.i("🔹 ENV Loaded (VARS) => $envVars");
+    AppLogger.instance.logger.i("🔹 ENV Loaded (VARS) => $envVars");
     _isLoaded = false;
   }
 }

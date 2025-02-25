@@ -6,15 +6,15 @@ import 'env_datas.dart';
 
 class EnvLoader {
   static Future<Map<String, String>> load({required dtv.DotEnv dotEnv}) async {
-    AppLogger.INSTANCE.logger.i("🔹 INIT ENV LOADER");
+    AppLogger.instance.logger.i("🔹 INIT ENV LOADER");
     //
     await dotEnv.load(fileName: "${EnvDatas.envsFolder}/.env.${EnvDatas.all}");
-    AppLogger.INSTANCE.logger.i("🔹 ENV ALL => ${dotEnv.env['ENV']}");
+    AppLogger.instance.logger.i("🔹 ENV ALL => ${dotEnv.env['ENV']}");
     String env = dotEnv.env['ENV'] ?? EnvDatas.defaultEnv; // Defaut Env
-    AppLogger.INSTANCE.logger.i("🔹 ENV => $env");
+    AppLogger.instance.logger.i("🔹 ENV => $env");
     //
     await dotEnv.load(fileName: "${EnvDatas.envsFolder}/.env.$env");
-    AppLogger.INSTANCE.logger.i("🔹 ENV LOADED => $env");
+    AppLogger.instance.logger.i("🔹 ENV LOADED => $env");
     return dotEnv.env;
   }
 }

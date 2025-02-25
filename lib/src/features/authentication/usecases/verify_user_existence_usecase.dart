@@ -1,4 +1,4 @@
-import 'package:itc_app/src/features/authentication/repositories/auth-repository.dart';
+import 'package:itc_app/src/features/authentication/repositories/auth_repository.dart';
 
 class VerifyUserExistenceUseCase {
   final AuthRepository repository;

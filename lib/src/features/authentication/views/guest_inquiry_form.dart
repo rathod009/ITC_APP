@@ -220,7 +220,7 @@ String? validateCourseCategory(List<String>? value) {
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.cyanAccent.withOpacity(0.5), // Adjust opacity as needed
+                color: Colors.yellowAccent.withValues(),
                 spreadRadius: 1,
                 blurRadius: 2,
                 offset: const Offset(0, 1),
@@ -233,33 +233,33 @@ String? validateCourseCategory(List<String>? value) {
               filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
               child: Material(
                 color: Colors.transparent,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    //First Name
-                    Expanded(
-                      child: buildTextField("First Name", (value) => fName = value,
-                          (value) => value == null || value.isEmpty ? 'Enter First Name' : null),
-                    ),
-                    const SizedBox(width: 8),
-                    //Last Name
-                    Expanded(
-                      child: buildTextField("Last Name", (value) => lName = value,
-                          (value) => value == null || value.isEmpty ? 'Enter last Name' : null),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    // Gender
-                    Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                  child: Form(
+                    key: _formKey,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              //First Name
+                              Expanded(
+                                child: buildTextField("First Name", (value) => fName = value,
+                                (value) => value == null || value.isEmpty ? 'Enter First Name' : null),
+                              ),
+                              const SizedBox(width: 8),
+                              //Last Name
+                              Expanded(
+                                child: buildTextField("Last Name", (value) => lName = value,
+                                (value) => value == null || value.isEmpty ? 'Enter last Name' : null),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              // Gender
+                              Expanded(
                                 flex: 2,
                                 child: FormField<String>(
                                   // Gender Radio Buttons

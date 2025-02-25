@@ -19,7 +19,7 @@ class CourseService {
         throw Exception('Failed to load courses. Status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error during API call: $e');
+      // print('Error during API call: $e');
       throw Exception('Failed to load courses. Network error or invalid URL.');
     }
   }

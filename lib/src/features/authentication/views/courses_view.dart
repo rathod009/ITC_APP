@@ -7,10 +7,10 @@ class CoursesView extends StatefulWidget {
   const CoursesView({super.key});
 
   @override
-  _CoursesViewState createState() => _CoursesViewState();
+  CoursesViewState createState() => CoursesViewState();
 }
 
-class _CoursesViewState extends State<CoursesView> {
+class CoursesViewState extends State<CoursesView> {
   late Future<List<Course>> _coursesFuture;
   final CourseService _courseService = CourseService();
 

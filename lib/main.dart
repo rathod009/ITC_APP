@@ -7,7 +7,7 @@ import 'routes/app_pages.dart';
 import 'routes/app_routes.dart';
 import 'src/features/authentication/viewmodels/authentication_viewmodel.dart';
 import 'src/features/authentication/usecases/verify_user_existence_usecase.dart';
-import 'package:itc_app/src/features/authentication/repositories/auth-repository.dart'; // Import your repository
+import 'package:itc_app/src/features/authentication/repositories/auth_repository.dart'; // Import your repository
 
 void main() {
   // Create an instance of your repository

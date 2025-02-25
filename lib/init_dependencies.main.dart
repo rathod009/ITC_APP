@@ -14,6 +14,6 @@ Future<void> initDependencies() async {
 
   } catch (e) {
     // Log any errors during initialization
-    AppLogger.INSTANCE.logger.e(e.toString(), error: e);
+    AppLogger.instance.logger.e(e.toString(), error: e);
   }
 }
