@@ -411,40 +411,40 @@ String? validateCourseCategory(List<String>? value) {
                       ),
                     ),
                     Center(
-  child: ElevatedButton.icon(
-    onPressed: _submitForm,
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.green,
-      textStyle: const TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 16,
-        letterSpacing: 1.2,
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-        side: const BorderSide(color: Colors.green),
-      ),
-    ),
-    icon: const Icon(
-      Icons.check_circle, // Or any other suitable icon
-      color: Colors.green,
-      size: 20,
-    ),
-    label: const Text("SUBMIT"),
-  ),
-),
-                            ],
+                      child: ElevatedButton.icon(
+                        onPressed: _submitForm,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.green,
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            letterSpacing: 1.2,
+                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            side: const BorderSide(color: Colors.green),
                           ),
                         ),
+                        icon: const Icon(
+                          Icons.check_circle, // Or any other suitable icon
+                          color: Colors.green,
+                          size: 20,
+                        ),
+                        label: const Text("SUBMIT"),
                       ),
+                      ),
+                      ],
                     ),
                   ),
                 ),
               ),
             ),
+          ),
+        ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
