@@ -56,20 +56,15 @@ class CoursesView extends StatelessWidget {
   static const List<String> allCourseImageAssets = [
     'assets/images/accounting.png',
     'assets/images/artificial.webp',
-    'assets/images/other.png', // 'assets/images/autodesk.png',
+    'assets/images/autodesk.png',
     'assets/images/ethical_hacking.jpg',
     'assets/images/hardware.jpg',
     'assets/images/multimedia.png',
     'assets/images/networking.png',
     'assets/images/data_analytics.png', 
     'assets/images/programming.png',
-    // 'assets/images/english.png',
-    // 'assets/images/internship.png',
-    // 'assets/images/other.png',
-    // 'assets/images/other.png',
-    // 'assets/images/other.png',
-    'assets/images/other.png',
-    'assets/images/other.png',
+    'assets/images/spoken_english.png',
+    'assets/images/internship.jpg',
     'assets/images/other.png',
   ];
 

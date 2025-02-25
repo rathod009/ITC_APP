@@ -35,13 +35,16 @@ flutter:
     - assets/images/quiz.png
     - assets/images/study.png
     - assets/images/other.png
+    - assets/images/other.png
     - assets/images/course.png
     - assets/images/lecture.png
     - assets/images/batches.png
     - assets/images/project.png
     - assets/images/seminar.png
+    - assets/images/autodesk.png
     - assets/images/hardware.jpg
     - assets/images/insights.png
+    - assets/images/internship.jpg
     - assets/images/networking.png
     - assets/images/accounting.png
     - assets/images/multimedia.png
@@ -53,8 +56,9 @@ flutter:
     - assets/images/examination.png
     - assets/images/student_list.png
     - assets/images/data_analytics.png
+    - assets/images/spoken_english.png
     - assets/images/ethical_hacking.jpg
-
+    
     - assets/user_credentials.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

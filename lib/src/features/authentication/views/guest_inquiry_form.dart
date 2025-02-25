@@ -19,7 +19,7 @@ class _GuestInquiryFormState extends State<GuestInquiryForm> {
   String fName = '';
   String lName = '';
   String fullName = '';
-  String gender = '';
+  String gender = 'Male';
   String mobile = '';
   String email = '';
   String knowITCFrom = '';
@@ -76,8 +76,11 @@ static const List<String> vacationCourseCategories = [
   'Spoken English',
 ];
 
-    Future<void> _submitForm() async {
-  if (_formKey.currentState!.validate()) {
+  Future<void> _submitForm() async {
+  bool formIsValid = _formKey.currentState!.validate();
+  bool courseCategoryIsValid = validateCourseCategory(interestedCoursesCategory) == null;
+
+  if (formIsValid && courseCategoryIsValid) {
     inquiryDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
 
     try {
@@ -105,21 +108,20 @@ static const List<String> vacationCourseCategories = [
           if (decodedResponse['status'] == 'success') {
             _formKey.currentState!.reset();
             interestedCoursesCategory = [];
-            if(localContext.mounted){
+            if (localContext.mounted) {
               ScaffoldMessenger.of(localContext).showSnackBar(
                 const SnackBar(content: Text('Inquiry Submitted Successfully!')),
               );
             }
-
           } else {
-            if (localContext.mounted){
+            if (localContext.mounted) {
               ScaffoldMessenger.of(localContext).showSnackBar(
                 SnackBar(content: Text(decodedResponse['message'])),
               );
             }
           }
         } else {
-          if (localContext.mounted){
+          if (localContext.mounted) {
             ScaffoldMessenger.of(localContext).showSnackBar(
               const SnackBar(content: Text('Error submitting inquiry.')),
             );
@@ -127,15 +129,14 @@ static const List<String> vacationCourseCategories = [
         }
       }
     } catch (e) {
-      if (mounted){
+      if (mounted) {
         final localContext = context;
-        if(localContext.mounted){
+        if (localContext.mounted) {
           ScaffoldMessenger.of(localContext).showSnackBar(
             SnackBar(content: Text('An error occurred: $e')),
           );
         }
       }
-
     }
   } else {
     setState(() {});
@@ -143,12 +144,12 @@ static const List<String> vacationCourseCategories = [
 }
 
 // Gender Validation Function
-String? _validateGender(String? value) {
-  if (value == null || value.isEmpty) {
-    return 'Select a Gender';
-  }
-  return null;
-}
+// String? _validateGender(String? value) {
+//   if (value == null || value.isEmpty) {
+//     return 'Select a Gender';
+//   }
+//   return null;
+// }
 
 // // Checkbox Validation Function - Course Category
 //   String? validateCourseCategory(List<String>? value) {
@@ -182,9 +183,9 @@ void fetchCourses(String type) {
 String? validateCourseCategory(List<String>? value) {
   if (value == null || value.isEmpty) {
     setState(() {
-      formError = "Please select at least one course category.";
+      formError = "Please select at least one course category";
     });
-    return "Please select at least one course category.";
+    return "Please select at least one course category";
   }
   setState(() {
     formError = null;
@@ -251,39 +252,46 @@ String? validateCourseCategory(List<String>? value) {
                   children: [
                     // Gender
                     Expanded(
-                      flex: 2,
-                      child:  FormField<String>( // Gender Radio Buttons
-                      builder: (FormFieldState<String> state) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            buildRadioButtons(
-                              "Gender",
-                              ['Male', 'Female'],
-                              (value) {
-                                setState(() {
-                                  gender = value;
-                                  state.didChange(value);
-                                });
-                              },
-                              gender,
-                            ),
-                            if (state.hasError) // Display error directly from state
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
-                              child: Text(
-                                state.errorText!,
-                                style: const TextStyle( // Consistent error styling
-                                color: Colors.red,
-                                fontSize: 11, // Match the size in the TextFormField
+                                flex: 2,
+                                child: FormField<String>(
+                                  // Gender Radio Buttons
+                                  builder: (FormFieldState<String> state) {
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(4, 0, 0, 0),
+                                          child: buildRadioButtons(
+                                            "Gender",
+                                            ['Male', 'Female'],
+                                            (value) {
+                                              setState(() {
+                                                gender = value;
+                                                state.didChange(value);
+                                              });
+                                            },
+                                            gender, // Use the state variable
+                                          ),
+                                        ),
+                                        // if (state.hasError)
+                                        //   Padding(
+                                        //     padding: const EdgeInsets.fromLTRB(
+                                        //         12, 0, 0, 0),
+                                        //     child: Text(
+                                        //       state.errorText!,
+                                        //       style: const TextStyle(
+                                        //         color: Colors.red,
+                                        //         fontSize: 11,
+                                        //       ),
+                                        //     ),
+                                        //   ),
+                                      ],
+                                    );
+                                  },
+                                  // validator: _validateGender,
+                                ),
                               ),
-                            ),
-                          ),
-                        ],);
-                      },
-                      validator: _validateGender,
-                      ),
-                    ),
                     const SizedBox(width: 8),
                     Expanded(
                       flex: 2,
@@ -322,17 +330,20 @@ String? validateCourseCategory(List<String>? value) {
                         const Text("Course Type", style: TextStyle(fontWeight: FontWeight.bold)),
                         Row(
                           children: [
-                            Radio<String>(
-                              value: 'regular',
-                              groupValue: courseType,
-                              onChanged: (value) {
-                                if (value != null) {
-                                  setState(() {
-                                    courseType = value;
-                                    fetchCourses(courseType); // Fetch courses based on type
-                                  });
-                                }
-                              },
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(4, 0, 0, 0),
+                              child: Radio<String>(
+                                value: 'regular',
+                                groupValue: courseType,
+                                onChanged: (value) {
+                                  if (value != null) {
+                                    setState(() {
+                                      courseType = value;
+                                      fetchCourses(courseType); // Fetch courses based on type
+                                    });
+                                  }
+                                },
+                              ),
                             ),
                             const Text('Regular'),
                             Radio<String>(
@@ -353,12 +364,12 @@ String? validateCourseCategory(List<String>? value) {
                         const SizedBox(height: 8),
                         const Text("Course Category", style: TextStyle(fontWeight: FontWeight.bold)),
                         Wrap(
-                          spacing: -4.0,
-                          runSpacing: -8.0,
+                          spacing: -18.0,
+                          runSpacing: -6.0,
                           children: displayedCourses.map((course) {
                             return SizedBox(
                               key: ValueKey(course),
-                              width: MediaQuery.of(context).size.width / 1 - 0,
+                              width: MediaQuery.of(context).size.width / 2.16 - 1,
                               child: CheckboxListTile(
                                 title: Text(course),
                                 value: interestedCoursesCategory.contains(course),
@@ -379,12 +390,12 @@ String? validateCourseCategory(List<String>? value) {
                           ),
                           if (formError != null)
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
                             child: Text(
                               formError!,
                               style: const TextStyle(
                                 color: Colors.red,
-                                fontSize: 11,
+                                fontSize: 12,
                               ),
                             ),
                           ),
@@ -392,25 +403,30 @@ String? validateCourseCategory(List<String>? value) {
                       ),
                     ),
                     Center(
-                      child: ElevatedButton(
-                        onPressed: _submitForm,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.green,
-                          textStyle: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            letterSpacing: 1.2,
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                            side: const BorderSide(color: Colors.green),
-                          ),
-                        ),
-                        child: const Text("SUBMIT"),
-                      ),
-                              ),
+  child: ElevatedButton.icon(
+    onPressed: _submitForm,
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.green,
+      textStyle: const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+        letterSpacing: 1.2,
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        side: const BorderSide(color: Colors.green),
+      ),
+    ),
+    icon: const Icon(
+      Icons.check_circle, // Or any other suitable icon
+      color: Colors.green,
+      size: 20,
+    ),
+    label: const Text("SUBMIT"),
+  ),
+),
                             ],
                           ),
                         ),
