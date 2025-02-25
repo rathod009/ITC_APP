@@ -20,7 +20,7 @@ Widget buildCard(BuildContext context,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.yellowAccent.withValues(),
+            color: Colors.deepPurpleAccent.withValues(),
             spreadRadius: 1,
             blurRadius: 2,
             offset: const Offset(0, 1),

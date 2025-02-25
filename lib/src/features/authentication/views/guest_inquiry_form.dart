@@ -220,7 +220,7 @@ String? validateCourseCategory(List<String>? value) {
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.yellowAccent.withValues(),
+                color: Colors.cyanAccent.withValues(),
                 spreadRadius: 1,
                 blurRadius: 2,
                 offset: const Offset(0, 1),
