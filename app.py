@@ -27,7 +27,7 @@ def submit_inquiry():
     try:
         data = request.get_json()
         logging.debug(f"Received data: {data}")
-
+        print ('Hello Its Working')
         f_name = data.get('fName') or ""
         l_name = data.get('lName') or ""
         full_name = (f_name + " " + l_name).strip()
