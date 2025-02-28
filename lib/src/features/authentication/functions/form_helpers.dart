@@ -28,15 +28,16 @@ Widget buildTextField(String label, ValueChanged<String> onChanged,
   );
   }
 
-  Widget buildRadioButtons(String label, List<String> options, ValueChanged<String> onChanged, String priorKnowledge) {
+Widget buildRadioButtons(String label, List<String> options, ValueChanged<String> onChanged, String priorKnowledge) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 2.0),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: const TextStyle(fontWeight: FontWeight.bold),),
-        Row( //or wrap
-          children: options.map((option) => Row( // Inner row for spacing
+        Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+        Row(
+          children: options.map((option) => Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Radio<String>(
                 value: option,
@@ -47,7 +48,10 @@ Widget buildTextField(String label, ValueChanged<String> onChanged,
                   }
                 },
               ),
-              Text(option), // Text next to radio button
+              Padding(
+                padding: const EdgeInsets.only(right: 0.0), // Added space here
+                child: Text(option),
+              ),
             ],
           )).toList(),
         ),

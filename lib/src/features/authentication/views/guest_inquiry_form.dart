@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:itc_app/src/shared/ui/widgets/form_helpers.dart';
+import 'package:itc_app/src/features/authentication/functions/form_helpers.dart';
 // import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -282,18 +282,6 @@ String? validateCourseCategory(List<String>? value) {
                                             gender, // Use the state variable
                                           ),
                                         ),
-                                        // if (state.hasError)
-                                        //   Padding(
-                                        //     padding: const EdgeInsets.fromLTRB(
-                                        //         12, 0, 0, 0),
-                                        //     child: Text(
-                                        //       state.errorText!,
-                                        //       style: const TextStyle(
-                                        //         color: Colors.red,
-                                        //         fontSize: 11,
-                                        //       ),
-                                        //     ),
-                                        //   ),
                                       ],
                                     );
                                   },
