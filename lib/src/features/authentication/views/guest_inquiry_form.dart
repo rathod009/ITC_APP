@@ -151,14 +151,6 @@ static const List<String> vacationCourseCategories = [
   }
 }
 
-// Gender Validation Function
-// String? _validateGender(String? value) {
-//   if (value == null || value.isEmpty) {
-//     return 'Select a Gender';
-//   }
-//   return null;
-// }
-
 // // Checkbox Validation Function - Course Category
 //   String? validateCourseCategory(List<String>? value) {
 //     if (value == null || value.isEmpty) {
