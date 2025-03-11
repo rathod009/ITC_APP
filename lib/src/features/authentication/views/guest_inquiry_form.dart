@@ -90,10 +90,10 @@ static const List<String> vacationCourseCategories = [
     // Or, if needed, try SQL Server specific format
     // inquiryDate = DateFormat('yyyy-MM-ddTHH:mm:ss.SSSZ').format(DateTime.now().toUtc());
 
-
     try {
       final response = await http.post(
-        Uri.parse('http://127.0.0.1:5000/submitInquiry'),
+        // Uri.parse('http://127.0.0.1:5000/submitInquiry'),
+        Uri.parse('http://192.168.100.196:5000/submitInquiry'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'fName': fName,

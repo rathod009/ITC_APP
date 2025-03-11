@@ -143,10 +143,10 @@ def submit_inquiry():
 
         # Insert into a_InquiryMaster
         inquiry_query = """
-            INSERT INTO [ITC].dbo.a_InquiryMaster (InquiryId, PersonId, InquiryDate, CourseCategory, PriorKnowledge, KnowITCFrom, InquiryType)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO [ITC].dbo.a_InquiryMaster (InquiryId, PersonId, InquiryDate, CourseCategory, PriorKnowledge, KnowITCFrom, InquiryType, InquiredBy)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """
-        inquiry_values = (new_inquiry_id, new_person_id, inquiry_date_obj, interested_courses, prior_knowledge, know_itc_from, inquiry_type)
+        inquiry_values = (new_inquiry_id, new_person_id, inquiry_date_obj, interested_courses, prior_knowledge, know_itc_from, inquiry_type, 'application')
         cursor.execute(inquiry_query, inquiry_values)
 
         connection.commit()
@@ -162,4 +162,4 @@ def submit_inquiry():
             connection.close()
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5000)
