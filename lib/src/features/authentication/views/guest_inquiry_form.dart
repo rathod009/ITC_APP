@@ -93,7 +93,8 @@ static const List<String> vacationCourseCategories = [
     try {
       final response = await http.post(
         // Uri.parse('http://127.0.0.1:5000/submitInquiry'),
-        Uri.parse('http://192.168.100.196:5000/submitInquiry'),
+        Uri.parse('http://192.168.100.196:1433/submitInquiry'),
+        // Uri.parse('http://itcmogri.org:5000/submitInquiry'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'fName': fName,
