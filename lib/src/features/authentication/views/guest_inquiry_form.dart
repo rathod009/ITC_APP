@@ -1,10 +1,9 @@
 import 'dart:ui';
-
-import 'package:flutter/material.dart';
-import 'package:itc_app/src/features/authentication/functions/form_helpers.dart';
-// import 'package:intl/intl.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:intl/intl.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:itc_app/src/features/authentication/functions/form_helpers.dart';
 
 class GuestInquiryForm extends StatefulWidget {
   const GuestInquiryForm({super.key});
@@ -24,6 +23,7 @@ class _GuestInquiryFormState extends State<GuestInquiryForm> {
   String email = '';
   String knowITCFrom = '';
   String inquiryDate = '';
+  String inquiryTime = '';
   List<String> interestedCoursesCategory = [];
 
   static const List<String> knowITCSources = [
@@ -84,17 +84,20 @@ static const List<String> vacationCourseCategories = [
   //   inquiryDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
 
   if (formIsValid && courseCategoryIsValid) {
-    // Use ISO 8601 format
-    inquiryDate = DateTime.now().toIso8601String();
+    // Use ISO 8601 format for date and time separately
+    DateTime now = DateTime.now();
+    inquiryDate = DateFormat('yyyy-MM-dd').format(now);
+    inquiryTime = DateFormat('HH:mm:ss').format(now);
 
     // Or, if needed, try SQL Server specific format
     // inquiryDate = DateFormat('yyyy-MM-ddTHH:mm:ss.SSSZ').format(DateTime.now().toUtc());
 
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.100.199:5000/submitInquiry'),
-        // Uri.parse('http://127.0.0.1:5000/submitInquiry'),
-        // Uri.parse('http://itcmogri.org:5000/submitInquiry'),
+        Uri.parse('http://itc-app.itcmogri.org:5000/submitInquiry'), //32GB - Remote machine(Externally Accessible)
+        // Uri.parse('http://192.168.100.199:5000/submitInquiry'), //32GB - Remote machine(Internally Accessible)
+        // Uri.parse('http://192.168.100.196:5000/submitInquiry'), //8GB - Local Machine
+        // Uri.parse('http://127.0.0.1:5000/submitInquiry'), //8GB - Local Machine
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'fName': fName,
@@ -104,6 +107,7 @@ static const List<String> vacationCourseCategories = [
           'email': email,
           'knowITCFrom': knowITCFrom,
           'inquiryDate': inquiryDate,
+          'inquiryTime': inquiryTime,
           'interestedCoursesCategory': interestedCoursesCategory,
         }),
       );
