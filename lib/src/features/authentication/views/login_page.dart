@@ -28,7 +28,7 @@ class LoginPage extends GetView<LoginController> {
               padding: const EdgeInsets.all(16),
               child: Image.asset(
                 'assets/images/itc_header.png',
-                height: 160,
+                height: 220,
                 fit: BoxFit.contain,
               ),
             ),
@@ -47,8 +47,8 @@ class LoginPage extends GetView<LoginController> {
               children: [
                 Image.asset(
                   "assets/images/itc.png",
-                  height: 140,
-                  width: 140,
+                  height: 160,
+                  width: 160,
                   fit: BoxFit.cover,
                 ),
                 Align(
@@ -85,7 +85,7 @@ class LoginPage extends GetView<LoginController> {
                     style: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 16,
+                      fontSize: 20,
                       color: Color(0xff000000),
                     ),
                     decoration: inputDecoration("Username", "Enter Your Username"),
@@ -99,7 +99,7 @@ class LoginPage extends GetView<LoginController> {
                   style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontStyle: FontStyle.normal,
-                    fontSize: 16,
+                    fontSize: 20,
                     color: Color(0xff000000),
                   ),
                   decoration: InputDecoration(

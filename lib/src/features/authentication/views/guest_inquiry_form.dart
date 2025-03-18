@@ -68,7 +68,7 @@ static const List<String> vacationCourseCategories = [
   'Artificial Intelligence',
   'Cloud Computing & Networking',
   'Cyber Security and Ethical Hacking',
-  'Data Analytics & Office Automation',
+  'Data Analysis & Office Automation',
   'IoT, Robotics & Hardware Repairing',
   'Multimedia & AR/VR',
   // 'Multimedia & AR/VR (Graphics & Animation)',

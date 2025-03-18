@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import pyodbc
 import logging
-from datetime import datetime, time
+from datetime import datetime
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -47,9 +47,9 @@ courses = [
         'imageUrl': 'assets/images/networking.png'
     },
     {
-        'title': 'Data Analytics & Office Automation',
+        'title': 'Data Analysis & Office Automation',
         'description': 'Master Microsoft Office Suite for document creation, data analysis, and presentations in office environments.',
-        'imageUrl': 'assets/images/data_analytics.png'
+        'imageUrl': 'assets/images/data_analysis.png'
     },
     {
         'title': 'Programming',
@@ -220,9 +220,9 @@ if __name__ == '__main__':
 #         'imageUrl': 'assets/images/networking.png'
 #     },
 #     {
-#         'title': 'Data Analytics & Office Automation',
+#         'title': 'Data Analysis & Office Automation',
 #         'description': 'Master Microsoft Office Suite for document creation, data analysis, and presentations in office environments.',
-#         'imageUrl': 'assets/images/data_analytics.png'
+#         'imageUrl': 'assets/images/data_analysis.png'
 #     },
 #     {
 #         'title': 'Programming',

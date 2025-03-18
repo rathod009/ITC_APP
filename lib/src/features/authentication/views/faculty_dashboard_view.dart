@@ -62,7 +62,7 @@ class FacultyDashboardView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GridView.count(
-          crossAxisCount: 2,
+          crossAxisCount: MediaQuery.of(context).size.width > 600 ? 3 : 2,
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
           childAspectRatio: 0.9,
