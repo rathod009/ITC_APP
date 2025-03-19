@@ -24,7 +24,7 @@ class _GuestInquiryFormState extends State<GuestInquiryForm> {
   String knowITCFrom = '';
   String inquiryDate = '';
   String inquiryTime = '';
-  List<String> interestedCoursesCategory = [];
+  List<String> coursesCategory = [];
 
   static const List<String> knowITCSources = [
     'Advertisement',
@@ -78,7 +78,7 @@ static const List<String> vacationCourseCategories = [
 
   Future<void> _submitForm() async {
   bool formIsValid = _formKey.currentState!.validate();
-  bool courseCategoryIsValid = validateCourseCategory(interestedCoursesCategory) == null;
+  bool courseCategoryIsValid = validateCourseCategory(coursesCategory) == null;
 
   // if (formIsValid && courseCategoryIsValid) {
   //   inquiryDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
@@ -87,7 +87,7 @@ static const List<String> vacationCourseCategories = [
     // Use ISO 8601 format for date and time separately
     DateTime now = DateTime.now();
     inquiryDate = DateFormat('yyyy-MM-dd').format(now);
-    inquiryTime = DateFormat('HH:mm:ss').format(now);
+    inquiryTime = DateFormat('HH:mm').format(now);
 
     // Or, if needed, try SQL Server specific format
     // inquiryDate = DateFormat('yyyy-MM-ddTHH:mm:ss.SSSZ').format(DateTime.now().toUtc());
@@ -108,7 +108,7 @@ static const List<String> vacationCourseCategories = [
           'knowITCFrom': knowITCFrom,
           'inquiryDate': inquiryDate,
           'inquiryTime': inquiryTime,
-          'interestedCoursesCategory': interestedCoursesCategory,
+          'CoursesCategory': coursesCategory,
         }),
       );
 
@@ -120,7 +120,7 @@ static const List<String> vacationCourseCategories = [
 
           if (decodedResponse['status'] == 'success') {
             _formKey.currentState!.reset();
-            interestedCoursesCategory = [];
+            coursesCategory = [];
             if (localContext.mounted) {
               ScaffoldMessenger.of(localContext).showSnackBar(
                 const SnackBar(content: Text('Inquiry Submitted Successfully!')),
@@ -168,17 +168,17 @@ static const List<String> vacationCourseCategories = [
 //   }
 
 // State variables and functions
-String courseType = 'regular'; // Default course type
+String courseType = 'regular course'; // Default course type
 List<String> displayedCourses = allCourseCategories; // Initial courses
 String? formError;
 
 void fetchCourses(String type) {
   setState(() {
-    interestedCoursesCategory.clear(); //Clear previously selected courses.
-    if (type == 'regular') {
+    coursesCategory.clear(); //Clear previously selected courses.
+    if (type == 'regular course') {
       displayedCourses = allCourseCategories; // Load regular courses
       // In real scenario, you'd fetch regular courses from a service.
-    } else if (type == 'vacation') {
+    } else if (type == 'vacation course') {
       displayedCourses = vacationCourseCategories; // Load vacation courses
       // In real scenario, you'd fetch vacation courses from a service.
     }
@@ -326,7 +326,7 @@ String? validateCourseCategory(List<String>? value) {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(4, 0, 0, 0),
                               child: Radio<String>(
-                                value: 'regular',
+                                value: 'regular course',
                                 groupValue: courseType,
                                 onChanged: (value) {
                                   if (value != null) {
@@ -338,9 +338,9 @@ String? validateCourseCategory(List<String>? value) {
                                 },
                               ),
                             ),
-                            const Text('Regular'),
+                            const Text('Regular Course'),
                             Radio<String>(
-                              value: 'vacation',
+                              value: 'vacation course',
                               groupValue: courseType,
                               onChanged: (value) {
                                 if (value != null) {
@@ -351,7 +351,7 @@ String? validateCourseCategory(List<String>? value) {
                                 }
                               },
                             ),
-                            const Text('Vacation'),
+                            const Text('Vacation Course'),
                           ],
                         ),
                         const SizedBox(height: 8),
@@ -365,14 +365,14 @@ String? validateCourseCategory(List<String>? value) {
                               width: MediaQuery.of(context).size.width / 2.16 - 1,
                               child: CheckboxListTile(
                                 title: Text(course),
-                                value: interestedCoursesCategory.contains(course),
+                                value: coursesCategory.contains(course),
                                 onChanged: (value) {
                                   if (value != null) {
                                     setState(() {
                                       if (value) {
-                                        interestedCoursesCategory.add(course);
+                                        coursesCategory.add(course);
                                         } else {
-                                          interestedCoursesCategory.remove(course);
+                                          coursesCategory.remove(course);
                                         }
                                       });
                                     }

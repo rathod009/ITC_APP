@@ -112,15 +112,15 @@ def submit_inquiry():
         prior_knowledge = data.get('priorKnowledge') or ""
         know_itc_from = data.get('knowITCFrom') or ""
         inquiry_date_str = data.get('inquiryDate') or ""
-        inquiry_time_str = data.get('inquiryTime') or "00:00:00"
+        inquiry_time_str = data.get('inquiryTime') or "00:00"
         interested_courses = ', '.join(data.get('interestedCoursesCategory', []))
         inquiry_type = data.get('inquiryType') or ""
 
         # Convert inquiry_date and inquiry_time separately
         try:
             inquiry_date_obj = datetime.strptime(inquiry_date_str, '%Y-%m-%d').date()
-            inquiry_time_obj = datetime.strptime(inquiry_time_str, '%H:%M:%S').time()
-            inquiry_time_string = inquiry_time_obj.strftime('%H:%M:%S')
+            inquiry_time_obj = datetime.strptime(inquiry_time_str, '%H:%M').time()
+            inquiry_time_string = inquiry_time_obj.strftime('%H:%M')
             inquiry_datetime_obj = datetime.combine(inquiry_date_obj, inquiry_time_obj)
 
         except ValueError as e:
@@ -152,7 +152,7 @@ def submit_inquiry():
             INSERT INTO [ITC].dbo.a_InquiryMaster (InquiryId, PersonId, InquiryDate, Time, CourseCategory, PriorKnowledge, KnowITCFrom, InquiryType, InquiredBy)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
-        inquiry_values = (new_inquiry_id, new_person_id, inquiry_datetime_obj, inquiry_time_string, interested_courses, prior_knowledge, know_itc_from, inquiry_type, 'application')
+        inquiry_values = (new_inquiry_id, new_person_id, inquiry_datetime_obj, inquiry_time_string, interested_courses, prior_knowledge, know_itc_from, inquiry_type, 'Application')
         cursor.execute(inquiry_query, inquiry_values)
 
         connection.commit()
