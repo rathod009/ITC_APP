@@ -28,7 +28,7 @@ class _GuestInquiryFormState extends State<GuestInquiryForm> {
 
   static const List<String> knowITCSources = [
     'Advertisement',
-    'Appication',
+    'Application',
     'Facebook',
     'Friend/Relative',
     'Handbill',

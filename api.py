@@ -113,7 +113,7 @@ def submit_inquiry():
         know_itc_from = data.get('knowITCFrom') or ""
         inquiry_date_str = data.get('inquiryDate') or ""
         inquiry_time_str = data.get('inquiryTime') or "00:00"
-        interested_course = ', '.join(data.get('interestedCoursesCategory', []))
+        interested_course = ', '.join(data.get('courseCategory', []))
         inquiry_category = data.get('inquiryCategory') or ""
 
         # Convert inquiry_date and inquiry_time separately
@@ -149,10 +149,10 @@ def submit_inquiry():
 
         # Insert into a_InquiryMaster
         inquiry_query = """
-            INSERT INTO [ITC].dbo.a_InquiryMaster (InquiryId, PersonId, InquiryDate, Time, Courses, KnowITCFrom, InquiredBy, InquiryType, InquiryCategory, CourseCategory, PriorKnowledge, IndividualType)
+            INSERT INTO [ITC].dbo.a_InquiryMaster (InquiryId, PersonId, InquiryDate, Time, Flag, KnowITCFrom, InquiredBy, InquiryType, InquiryCategory, CourseCategory, PriorKnowledge, IndividualType)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
-        inquiry_values = (new_inquiry_id, new_person_id, inquiry_datetime_obj, inquiry_time_string, interested_course, know_itc_from, 'Application', 'Individual', inquiry_category, interested_course, prior_knowledge, person_type)
+        inquiry_values = (new_inquiry_id, new_person_id, inquiry_datetime_obj, inquiry_time_string, 'Open', know_itc_from, 'Application', 'Individual', inquiry_category, interested_course, prior_knowledge, person_type)
         cursor.execute(inquiry_query, inquiry_values)
 
         connection.commit()
