@@ -24,7 +24,7 @@ class _GuestInquiryFormState extends State<GuestInquiryForm> {
   String knowITCFrom = '';
   String inquiryDate = '';
   String inquiryTime = '';
-  List<String> coursesCategory = [];
+  List<String> courseCategory = [];
 
   static const List<String> knowITCSources = [
     'Advertisement',
@@ -78,7 +78,7 @@ static const List<String> vacationCourseCategories = [
 
   Future<void> _submitForm() async {
   bool formIsValid = _formKey.currentState!.validate();
-  bool courseCategoryIsValid = validateCourseCategory(coursesCategory) == null;
+  bool courseCategoryIsValid = validateCourseCategory(courseCategory) == null;
 
   // if (formIsValid && courseCategoryIsValid) {
   //   inquiryDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
@@ -108,7 +108,8 @@ static const List<String> vacationCourseCategories = [
           'knowITCFrom': knowITCFrom,
           'inquiryDate': inquiryDate,
           'inquiryTime': inquiryTime,
-          'CoursesCategory': coursesCategory,
+          'courseCategory': courseCategory,
+          'inquiryCategory': courseType,
         }),
       );
 
@@ -120,7 +121,7 @@ static const List<String> vacationCourseCategories = [
 
           if (decodedResponse['status'] == 'success') {
             _formKey.currentState!.reset();
-            coursesCategory = [];
+            courseCategory = [];
             if (localContext.mounted) {
               ScaffoldMessenger.of(localContext).showSnackBar(
                 const SnackBar(content: Text('Inquiry Submitted Successfully!')),
@@ -168,19 +169,17 @@ static const List<String> vacationCourseCategories = [
 //   }
 
 // State variables and functions
-String courseType = 'regular course'; // Default course type
+String courseType = 'Regular Course'; // Default course type
 List<String> displayedCourses = allCourseCategories; // Initial courses
 String? formError;
 
 void fetchCourses(String type) {
   setState(() {
-    coursesCategory.clear(); //Clear previously selected courses.
-    if (type == 'regular course') {
+    courseCategory.clear(); //Clear previously selected courses.
+    if (type == 'Regular Course') {
       displayedCourses = allCourseCategories; // Load regular courses
-      // In real scenario, you'd fetch regular courses from a service.
-    } else if (type == 'vacation course') {
+    } else if (type == 'Vacation Course') {
       displayedCourses = vacationCourseCategories; // Load vacation courses
-      // In real scenario, you'd fetch vacation courses from a service.
     }
   });
 }
@@ -326,7 +325,7 @@ String? validateCourseCategory(List<String>? value) {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(4, 0, 0, 0),
                               child: Radio<String>(
-                                value: 'regular course',
+                                value: 'Regular Course',
                                 groupValue: courseType,
                                 onChanged: (value) {
                                   if (value != null) {
@@ -340,7 +339,7 @@ String? validateCourseCategory(List<String>? value) {
                             ),
                             const Text('Regular Course'),
                             Radio<String>(
-                              value: 'vacation course',
+                              value: 'Vacation Course',
                               groupValue: courseType,
                               onChanged: (value) {
                                 if (value != null) {
@@ -365,14 +364,14 @@ String? validateCourseCategory(List<String>? value) {
                               width: MediaQuery.of(context).size.width / 2.16 - 1,
                               child: CheckboxListTile(
                                 title: Text(course),
-                                value: coursesCategory.contains(course),
+                                value: courseCategory.contains(course),
                                 onChanged: (value) {
                                   if (value != null) {
                                     setState(() {
                                       if (value) {
-                                        coursesCategory.add(course);
+                                        courseCategory.add(course);
                                         } else {
-                                          coursesCategory.remove(course);
+                                          courseCategory.remove(course);
                                         }
                                       });
                                     }
