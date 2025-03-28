@@ -48,31 +48,35 @@ class _GuestInquiryFormState extends State<GuestInquiryForm> {
 
   // Regular course categories
   static const List<String> allCourseCategories = [
-    'Accounting',
-    'Autodesk',
-    'Hardware',
-    'Multimedia',
-    'Networking',
-    'Office Automation',
-    'Programming',
+    'Artificial Intelligence (AI), Machine Learning Lang.',
+    'Data Analysis & Office Automation (PowerBI, Excel)',
+    'Fullstack - Web Developer / Programmer',
+    'IoT, Hardware - Mobile, Laptop, PC Repairing',
+    'Multimedia & Augmented Reality (3DS, MAYA)',
+    'AWS, Cloud Computing, & Networking',
+    '2D/3D Engineering (CAD/CAM)',
+    'Cyber Security & Ethical Hacking',
+    'Accounting (Tally Prime)',
     'Spoken English',
     'Internship',
+    'Project',
+    'Corporate Training',
+    'Crash Course',
+    'Customised Training',
     'Other'
   ];
 
   // Vacation Course Categories
 static const List<String> vacationCourseCategories = [
-  '2D, 3D Engineering',
-  // '2D, 3D Engineering (CAD/CAM)',
-  'Accounting',
   'Artificial Intelligence',
-  'Cloud Computing & Networking',
-  'Cyber Security and Ethical Hacking',
-  'Data Analysis & Office Automation',
-  'IoT, Robotics & Hardware Repairing',
-  'Multimedia & AR/VR',
-  // 'Multimedia & AR/VR (Graphics & Animation)',
   'Programming',
+  'IoT, Robotics & Hardware Repairing',
+  'Cyber Security & Ethical Hacking',
+  'Cloud Computing & Networking',
+  'Multimedia & AR/VR (Graphics & Animation)',
+  '2D, 3D Engineering (CAD/CAM)',
+  'Data Analysis & Office Automation',
+  'Accounting',
   'Spoken English',
 ];
 
@@ -356,30 +360,62 @@ String? validateCourseCategory(List<String>? value) {
                         const SizedBox(height: 8),
                         const Text("Course Category", style: TextStyle(fontWeight: FontWeight.bold)),
                         Wrap(
-                          spacing: -18.0,
-                          runSpacing: -6.0,
+                          spacing: -4.0,
+                          runSpacing: 16.0,
                           children: displayedCourses.map((course) {
                             return SizedBox(
-                              key: ValueKey(course),
-                              width: MediaQuery.of(context).size.width / 2.16 - 1,
-                              child: CheckboxListTile(
-                                title: Text(course),
-                                value: courseCategory.contains(course),
-                                onChanged: (value) {
-                                  if (value != null) {
-                                    setState(() {
-                                      if (value) {
-                                        courseCategory.add(course);
-                                        } else {
-                                          courseCategory.remove(course);
-                                        }
-                                      });
-                                    }
-                                  },
-                                ),
-                              );
-                            }).toList(),
-                          ),
+                              key: ValueKey(course),// Use Row to arrange checkbox and text
+                              width: MediaQuery.of(context).size.width / 2.16 - 1, // Ensure Row takes minimal space
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Checkbox(
+                                    value: courseCategory.contains(course),
+                                    onChanged: (value) {
+                                      if (value != null) {
+                                        setState(() {
+                                          if (value) {
+                                            courseCategory.add(course);
+                                            } else {
+                                              courseCategory.remove(course);
+                                              }
+                                            });
+                                          }
+                                        },
+                                      ),
+                                      Flexible( // Use Flexible to allow text to wrap if needed
+                                      child: Text(course),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                        // Wrap(
+                        //   spacing: -18.0,
+                        //   runSpacing: -6.0,
+                        //   children: displayedCourses.map((course) {
+                        //     return SizedBox(
+                        //       key: ValueKey(course),
+                        //       width: MediaQuery.of(context).size.width / 2.16 - 1,
+                        //       child: CheckboxListTile(
+                        //         title: Text(course),
+                        //         value: courseCategory.contains(course),
+                        //         onChanged: (value) {
+                        //           if (value != null) {
+                        //             setState(() {
+                        //               if (value) {
+                        //                 courseCategory.add(course);
+                        //                 } else {
+                        //                   courseCategory.remove(course);
+                        //                 }
+                        //               });
+                        //             }
+                        //           },
+                        //         ),
+                        //       );
+                        //     }).toList(),
+                        //   ),
                           if (formError != null)
                           Padding(
                             padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
