@@ -182,6 +182,7 @@ class CoursesViewState extends State<CoursesView> {
 }
 }
 
+//---------OLD CODE - WITH API -----------
 // import 'package:flutter/material.dart';
 // import 'package:itc_app/service/course_service.dart';
 // import 'package:itc_app/src/features/authentication/models/data_model.dart';
