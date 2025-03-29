@@ -35,6 +35,7 @@ flutter:
     - assets/images/itc.png
     - assets/images/form.png
     - assets/images/quiz.png
+    - assets/images/cloud.png
     - assets/images/study.png
     - assets/images/other.png
     - assets/images/course.png
