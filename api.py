@@ -12,63 +12,83 @@ CORS(app)
 # Course Data API (remains the same)
 courses = [
     {
-        'title': 'Accounting',
-        'description': 'Learn accounting principles, financial analysis, and budgeting. Build a foundation for a finance career.',
-        'imageUrl': 'assets/images/accounting.png'
-    },
-    {
-        'title': 'Artificial Intelligence',
-        'description': 'Implement AI solutions, automate tasks, and optimize processes. Drive efficiency with intelligent technology.',
+        'title': 'Artificial Intelligence (AI), Machine Learning Language',
+        'description': 'AI Concepts, Python Programming, Mathematics Essential, IoT Sensors and Devices, IoT and SQL Programming, Machine Learning and Deep Learning Language Programming, Robotics Concepts, AI Application & Project Data Science Applications, Cloud Computing',
         'imageUrl': 'assets/images/artificial.webp'
     },
     {
-        'title': 'Autodesk',
-        'description': 'Master Autodesk software for 2D/3D modeling in architecture and engineering. Prepare for industry certifications.',
-        'imageUrl': 'assets/images/autodesk.png'
-    },
-    {
-        'title': 'Ethical Hacking',
-        'description': 'Study cryptography, network protocols, and ethical hacking methodologies. Become a guardian of data integrity.',
-        'imageUrl': 'assets/images/ethical_hacking.jpg'
-    },
-    {
-        'title': 'Hardware',
-        'description': 'Gain hardware knowledge: CPUs, motherboards, memory. Learn to assemble and repair systems for IT careers.',
-        'imageUrl': 'assets/images/hardware.jpg'
-    },
-    {
-        'title': 'Multimedia',
-        'description': 'Unleash your creativity through the power of multimedia. Develop your skills in graphics and video editing.',
-        'imageUrl': 'assets/images/multimedia.png'
-    },
-    {
-        'title': 'Cloud Computing & Networking',
-        'description': 'Learn networking concepts, security, and administration. Configure routers and switches for network careers.',
-        'imageUrl': 'assets/images/networking.png'
-    },
-    {
-        'title': 'Data Analysis & Office Automation',
-        'description': 'Master Microsoft Office Suite for document creation, data analysis, and presentations in office environments.',
-        'imageUrl': 'assets/images/data_analysis.png'
-    },
-    {
-        'title': 'Programming',
-        'description': 'Learn programming languages like Python and Java. Develop skills in software and app development.',
+        'title': 'Fullstack - Web Developer / Programmer',
+        'description': 'Application Development using any one tool/Framework (PHP/JAVA/.Net/Android/Python), ReactJS, AngularJS, NodeJS, MongoDB, SQL, C/C++ Programming, Website Design, CSS, Bootstrap, Scripting, SAD, Project Development (Agile Method, Application Integration, Hosting, Migration, Presentation)',
         'imageUrl': 'assets/images/programming.png'
     },
     {
+        'title': 'Multimedia & Augmented Reality (3DS, MAYA)',
+        'description': 'Professional Digital Graphics, Website Designing - UX-UI, 2D and 3D Animation, Audio-Video Editing, Social Media Marketing Post, VFX, AR/VR Applications, Multimedia Studio Exposure, Photography, Game Designing & Development, Digital Film Making',
+        'imageUrl': 'assets/images/multimedia.png'
+    },
+    {
+        'title': '2D/3D Engineering (CAD/CAM)',
+        'description': 'Engineering Drawings, Design Concepts and Tools (BIM/Creo/Fusion 360/Revit/AutoCAD/Electrical/Solid Works, Ansys, 3DS Max, SketchUp, Lumion), Quality Control (GD and T - Geometrical Dimensioning and Tolerancing)',
+        'imageUrl': 'assets/images/autodesk.png'
+    },
+    {
+        'title': 'Accounting (Tally Prime)',
+        'description': 'Tally Prime / Quick book, HR, Payroll, Inventory, Purchase, Sales, GST, Taxation, Share Market, Banking, Costing and Analysis, Online Govt. Services, Cloud Accounting exposure, New Company and GST registration and setup',
+        'imageUrl': 'assets/images/accounting.png'
+    },
+    {
+        'title': 'Data Analysis & Office Automation (PowerBI, Excel)',
+        'description': 'Data Cleaning, Data Exploration, Alteryx / MS Tableau / MS Power BI, Data Parsing, Reporting, Blending & Joining Data, Data Summarize, Interactive Visualization, Creating Deskboard, SQL, MS Office, Adv. Excel, Internet Marketing, Office 365, Office Graphics, Audio-Video Editing',
+        'imageUrl': 'assets/images/data_analysis.png'
+    },
+    {
+        'title': 'IoT, Hardware - Mobile, Laptop, PC Repairing',
+        'description': 'IoT Sensors, Arduino, Raspberry Pi, Wi-Fi-Bluetooth Connectivity, Microcontroller, Cloud Platform for IoT, SBCs, NodeMCU, Home Automation & CCTV Camera Installation, Laptop-PC-Peripherals-Mobile Repairing, Home Appliances Repairing',
+        'imageUrl': 'assets/images/hardware.jpg'
+    },
+    {
+        'title': 'AWS, Cloud Computing & Networking',
+        'description': 'Data Center Concepts, Networking, Structured Cabling, Windows Server, A+, N+, CCNA, MCSA, MCSE, Hyper-V Servers, Linux, Virtualization-VMware, AWS - Lambda, SNS, SQS, AWS Ec2, Load Balancing, Smart Rack & Router-Firewall-Bandwidth Management',
+        'imageUrl': 'assets/images/cloud.png'
+    },
+    {
+        'title': 'Cyber Security & Ethical Hacking',
+        'description': 'Network, Physical, Web and Application Security, Cloud and Virtualization Security, Vulnerability and Penetration Test, VAPT Reports, Kali Linux OS-Nessus-N-map-NETCAT, Cyber laws and Forensic, Network and IP concepts, IT infrastructure Technical utilization',
+        'imageUrl': 'assets/images/ethical_hacking.jpg'
+    },
+    {
         'title': 'Spoken English',
-        'description': 'Improve spoken English: pronunciation, grammar, vocabulary. Practice for presentations and interviews.',
+        'description': 'Basic Communication Skills, Grammar and Vocabulary, Pronunciation and Accent Training, Conversational English, Public Speaking, Presentation Skills, Business English, Interview Preparation, Group Discussions, Writing Skills (Emails, Reports).',
         'imageUrl': 'assets/images/spoken_english.png'
     },
     {
         'title': 'Internship',
-        'description': 'Gain practical experience through internships. Apply skills in real-world settings and build your network.',
+        'description': 'Industry Exposure, Practical Skill Development, Project Collaboration, Professional Networking, Real-World Application, Mentorship, Teamwork, Problem-Solving, Domain-Specific Tools, Workplace Communication, Performance Evaluation.',
         'imageUrl': 'assets/images/internship.jpg'
     },
     {
+        'title': 'Project',
+        'description': 'Project Planning and Management, Requirement Analysis, Design and Development, Testing and Debugging, Documentation, Agile Methodologies, Version Control (Git), Collaboration Tools, Presentation and Demonstration, Client Interaction, Project Evaluation, Deployment and Maintenance.',
+        'imageUrl': 'assets/images/project.png'
+    },
+    {
+        'title': 'Corporate Training',
+        'description': 'Leadership Development, Team Building, Communication Skills, Time Management, Project Management, Software Proficiency, Industry Compliance, Customer Service, Sales Training, Data Analysis, Cybersecurity Awareness.',
+        'imageUrl': 'assets/images/corporate.png'
+    },
+    {
+        'title': 'Crash Course',
+        'description': 'Intensive Skill Acquisition, Accelerated Learning, Focused Curriculum, Practical Exercises, Quick Project Completion, Essential Concepts, Time-Bound Training, Exam Preparation (if applicable), Skill Refreshment, Immediate Application, Rapid Prototyping.',
+        'imageUrl': 'assets/images/crash-course.png'
+    },
+    {
+        'title': 'Customised Training',
+        'description': 'Tailored Curriculum, Individualized Learning Paths, Specific Industry Needs, Company-Specific Tools, Flexible Scheduling, On-Demand Support, Skill Gap Analysis, Performance Improvement, Role-Specific Training, Personalized Projects, Adaptable Content, Targeted Objectives.',
+        'imageUrl': 'assets/images/customised.png'
+    },
+    {
         'title': 'Other',
-        'description': 'Explore specialized courses like data science and web development. Learn emerging technologies.',
+        'description': 'Needs Assessment and Consultation, Skill Gap Analysis, Event Planning and Execution, Technical Support, Curriculum Development, Community Outreach Programs, Industry Partnership Coordination, Mentorship Programs, Specialized Workshops, Customized Seminars.',        
         'imageUrl': 'assets/images/other.png'
     },
 ]
