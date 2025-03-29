@@ -28,7 +28,7 @@ class LoginPage extends GetView<LoginController> {
               padding: const EdgeInsets.all(16),
               child: Image.asset(
                 'assets/images/itc_header.png',
-                height: 180,
+                height: 180, //Change the heigh if you want to install in tab to 220
                 fit: BoxFit.contain,
               ),
             ),
