@@ -4,14 +4,12 @@ import 'package:flutter/material.dart';
 class CourseCard extends StatelessWidget {
   final String title;
   final String description;
-  // final String duration;
   final String imageUrl;
 
   const CourseCard({
     super.key,
     required this.title,
     required this.description,
-    // required this.duration,
     required this.imageUrl,
   });
 
@@ -31,13 +29,13 @@ class CourseCard extends StatelessWidget {
             ],
           ),
           boxShadow: [
-          BoxShadow(
-            color: Colors.cyanAccent.withValues(),
-            spreadRadius: 1,
-            blurRadius: 2,
-            offset: const Offset(0, 1),
-          ),
-        ],
+            BoxShadow(
+              color: Colors.cyanAccent.withOpacity(0.3),
+              spreadRadius: 1,
+              blurRadius: 2,
+              offset: const Offset(0, 1),
+            ),
+          ],
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
@@ -47,42 +45,31 @@ class CourseCard extends StatelessWidget {
               color: Colors.transparent,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Row(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(description),
-                          // const SizedBox(height: 8),
-                          // Text(
-                          //   'Duration: $duration',
-                          //   style: const TextStyle(
-                          //     fontSize: 14, fontWeight: FontWeight.bold
-                          //   )
-                          //   ),
-                        ],
-                      ),
+                    Text(
+                      title,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(width: 16),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 16, 8, 0),
-                      child: Image.asset(
-                        imageUrl,
-                        height: 120,
-                        width: 120,
-                        fit: BoxFit.contain,
-                        errorBuilder: (context, error, stackTrace) =>
-                            const Text('Image failed'),
-                      ),
-                    ),
+                    const SizedBox(height: 8),
+                    Text(description),
+                    const SizedBox(height: 8),
+                    if (imageUrl.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Image.asset(
+                          imageUrl,
+                          height: 120,
+                          width: double.infinity,
+                          fit: BoxFit.contain,
+                          errorBuilder: (context, error, stackTrace) =>
+                              const Text('Image failed'),
+                        ),
+                      )
+                    else
+                      const SizedBox.shrink(), // No image if imageUrl is empty
                   ],
                 ),
               ),

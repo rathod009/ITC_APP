@@ -58,7 +58,7 @@ courses = [
     },
     {
         'title': 'Spoken English',
-        'description': 'Basic Communication Skills, Grammar and Vocabulary, Pronunciation and Accent Training, Conversational English, Public Speaking, Presentation Skills, Business English, Interview Preparation, Group Discussions, Writing Skills (Emails, Reports).',
+        'description': 'Communication Skills, Grammar and Vocabulary, Conversational English, Public Speaking, Presentation Skills, Interview Preparation, Group Discussions, Writing Skills (Emails. Letters. & Reports).',
         'imageUrl': 'assets/images/spoken_english.png'
     },
     {
